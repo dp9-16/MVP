@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  display:none;
+}
+.test {
+  margin-top: 60px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+.test::-webkit-scrollbar {
+  display:none;
+}
+
+.div-element {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: beige;
+  border-bottom: 1px solid black;
+}
+
+.header {
+  position:fixed;
+  height: 60px;
+  background-color: aquamarine;
+  width:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  top:0;
+}
+
+#about-us {
+  height: 120px;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: grey;
+  border: 1px solid black;
+}
