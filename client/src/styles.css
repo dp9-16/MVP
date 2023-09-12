@@ -32,11 +32,14 @@ body::-webkit-scrollbar {
   background-color: aquamarine;
   width:100%;
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 100px 1fr;
   align-items: center;
   top:0;
 }
-
+.header > p {
+  padding-left:20px;
+  cursor:pointer;
+}
 #about-us {
   height: 120px;
   scroll-snap-align: start;
@@ -46,4 +49,91 @@ body::-webkit-scrollbar {
   font-size: 24px;
   background-color: grey;
   border: 1px solid black;
+}
+p, span {
+  text-align: center;
+}
+.div-butt {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background-color : antiquewhite;
+  margin: 10px 0 10px 0;
+  width: 40vw;
+  height: 20vh;
+  min-width: 350px;
+  min-height:50px;
+  max-height: 100px;
+  max-width:500px;
+  cursor: pointer;
+}
+.buttons {
+  width: 100%;
+  display:flex;
+  justify-content:space-between;
+}
+.buttons-last {
+  width: 100%;
+  display:flex;
+  justify-content:space-between;
+}
+.buttons > button, .buttons-last > button, .nextButton > button {
+  cursor: pointer;
+  width: 120px;
+  height:60px;
+  text-align: center;
+  padding:0;
+  font-size:65%;
+}
+.buttons > button:hover, .nextButton > button:hover {
+  background-color: aquamarine;
+  transition: background-color 0.5s ease-in-out;
+}
+.nextButton {
+  width:100%;
+  display:flex;
+  justify-content: end;
+}
+
+.cont {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.container {
+  display:grid;
+  grid-template-rows: repeat(1fr,6);
+  row-gap: 5px;
+}
+
+.radios {
+  display:grid;
+  grid-template-rows: repeat(1fr,4);
+}
+.radios .radio {
+  cursor: pointer;
+  border-radius: 2px;
+  background-color : antiquewhite;
+  margin: 10px 0 10px 0;
+  width: 40vw;
+  height: 20vh;
+  min-width: 350px;
+  min-height:50px;
+  max-height: 100px;
+  max-width:500px;
+}
+
+.radios input {
+  display:none;
+}
+
+.radios input:checked + .radio {
+  background-color: aquamarine;
+}
+
+.radios label {
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
