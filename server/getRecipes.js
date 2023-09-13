@@ -1,10 +1,6 @@
 const axios = require('axios');
 require('dotenv').config();
 
-// const url = 'https://api.edamam.com/api/recipes/v2'
-// const id = 'ab54757d'
-// const key = 'b3218f5346afe1f35a7cb3650de96b38'
-// const uid = 'dp91600'
 const url = process.env.API_URL
 const id = process.env.API_ID
 const key = process.env.API_KEY

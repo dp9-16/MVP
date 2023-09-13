@@ -38,12 +38,16 @@ const Info = ({ lvl,cal,weight,height,age,gen,page,scal,sweight,sheight,sage,sge
   const handleGen = (e) => {
     e.preventDefault();
     const el = document.getElementById('gen');
-    sgen(el.value);
+    if (el.value !== 'Select An Option') {
+      sgen(el.value);
+    }
   }
   const handleLvl = (e) => {
     e.preventDefault();
     const el = document.getElementById('lvl');
-    slvl(el.value);
+    if (el.value !== 'Select An Option') {
+      slvl(el.value);
+    }
   }
 //#endregion
   const goNext = (e) => {
@@ -58,15 +62,15 @@ const Info = ({ lvl,cal,weight,height,age,gen,page,scal,sweight,sheight,sage,sge
     set(2);
   }
   return (
-    <div>
+    <div className='quiz-cont'>
       <form>
-        <label>Gender:<select className='dropdown' id='gen' value={gen} onChange={handleGen}><option></option><option>M</option><option>F</option></select></label>
-        <label>Weight <i>(in Kg)</i>:<input type='number' value={weight} onChange={handleWeight}/></label>
-        <label>Height <i>(in cm)</i>:<input type='number' value={height} onChange={handleHeight}/></label>
-        <label>Age:<input type='number' value={age} onChange={handleAge}/></label>
-        <label>Activity Level:
+        <label>Gender<select className='dropdown' id='gen' value={gen} onChange={handleGen}><option>Select An Option</option><option>M</option><option>F</option></select></label>
+        <label>Weight (in Kg)<input type='number' value={weight} onChange={handleWeight}/></label>
+        <label>Height (in cm)<input type='number' value={height} onChange={handleHeight}/></label>
+        <label>Age<input type='number' value={age} onChange={handleAge}/></label>
+        <label>Activity Level
           <select className='dropdown' id='lvl' value={lvl} onChange={handleLvl}>
-            <option></option>
+            <option>Select An Option</option>
             <option>Sedentary</option>
             <option>Lightly Active</option>
             <option>Moderately Active</option>

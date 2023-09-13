@@ -157,37 +157,42 @@ const Quiz = () => {
   },[s])
   //#endregion
   //#region goal
-  const [ val,setVal ] = useState('')
+  const [ val,setVal ] = useState('');
+  const [ clicked,setClicked ] = useState(false);
   //#endregion
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    if (goal === 'balanced' || goal === 'high-fiber') {
-      var obj = {
-        diet: goal,
-        health: rest,
-        calories: (cal/3).toString()
-      }
+    if (clicked || cal === 0) {
+      alert('Please Finish Filling Out The Forms')
     } else {
-      var obj = {
-        diet: goal,
-        health: rest,
-        calories: (cal/2).toString()
+      if (goal === 'balanced' || goal === 'low-carb') {
+        var obj = {
+          diet: goal,
+          health: rest,
+          calories: (cal/3).toString()
+        }
+      } else {
+        var obj = {
+          diet: goal,
+          health: rest,
+          calories: (cal/2).toString()
+        }
       }
+      axios.get('/results', {params:obj})
+        .then((response) => {
+          return response.data
+        })
+        .then((result)=>{
+          navigate("/recipes", {state: {recipes: result}})
+        })
     }
-    axios.get('/results', {params:obj})
-      .then((response) => {
-        return response.data
-      })
-      .then((result)=>{
-        navigate("/recipes", {state: {recipes: result}})
-      })
   }
 
 //QUIZ SHOULD HAVE OBJECT WITH DIET FOR GOALS HEALTH FOR RESTRICTIONS/ALLERGIES AND CALORIES FOR CALORIE INTAKE DEPENDING ON GOAL
   if (page === 1) {
     return (
-      <div>
+      <div className='quiz'>
         <Header />
         <div className="div-element">
         <Info set={setPage} scal={setCal} slvl={setLvl} sweight={setWeight} sheight={setHeight} sage={setAge} sgen={setGen} cal={setCal} weight={weight} height={height} age={age} gen={gen} lvl={lvl}/>
@@ -197,17 +202,17 @@ const Quiz = () => {
     )
   } else if (page === 2) {
     return (
-      <div>
+      <div className='quiz'>
         <Header />
         <div className="div-element">
-        <Goal set={setPage} goal={setGoal} v={val} sv={setVal}/>
+        <Goal set={setPage} goal={setGoal} v={val} sv={setVal} clicked={setClicked}/>
         </div>
         <AboutUs />
       </div>
     )
   } else {
     return (
-      <div>
+      <div className='quiz'>
         <Header />
         <div className="div-element">
         <Restriction set={setPage} click={handleClick} k={k} sk={setK} ko={ko} sko={setKo} v={v} sv={setV} ve={ve} sve={setVe} g={g} sg={setG} p={p} sp={setP} sh={sh} ssh={setSh} s={s} ss={setS}/>
