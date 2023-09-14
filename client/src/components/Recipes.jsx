@@ -14,7 +14,7 @@ const Recipes = () => {
     recipe: {image: 'https://i.natgeofe.com/n/3ac79952-e41e-4726-b41c-b0e56f1dd38a/giraffe_01_3x4.JPG',label:''}
   }
   if (location.state) {
-    data = location.state;
+    data = location.state.recipes;
     console.log(data)
   }
 
@@ -26,19 +26,19 @@ const Recipes = () => {
       <Header />
       <div className="div-element">
         <div className='recipegrid'>
-          {arr.map((recipe,index) => {
+          {data.map((recipe,index) => {
             return (<a href='#recipediv' onClick={(e) => {handleClick(e,index)}}><SimpleCard key={index} food= {recipe}/></a>)
           })}
           <div>
             <p>Scroll Down For Recipe</p>
             <p>&#8595;</p>
           </div>
-          <SimpleCard key='giraffe' food={obj}/>
+          <SimpleCard className='giraffe' key='giraffe' food={obj}/>
         </div>
       </div>
       <div className="div-element" id='recipediv'>
-        {/* {location.state ? (<Recipe recipe={data[ind]}/>) : (<h1>Loading</h1>)} */}
-        {arr ? (<Recipe recipe={arr[ind]}/>) : (<h1>Loading</h1>)}
+        {location.state ? (<Recipe recipe={data[ind]}/>) : (<h1>Loading</h1>)}
+        {/* {arr ? (<Recipe recipe={arr[ind]}/>) : (<h1>Loading</h1>)} */}
       </div>
       <AboutUs />
     </div>

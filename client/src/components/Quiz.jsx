@@ -163,7 +163,8 @@ const Quiz = () => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    if (clicked || cal === 0) {
+    if (!clicked || cal === 0) {
+      console.log(clicked,cal);
       alert('Please Finish Filling Out The Forms')
     } else {
       if (goal === 'balanced' || goal === 'low-carb') {

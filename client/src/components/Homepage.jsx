@@ -27,16 +27,16 @@ const Homepage = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   axios.get('/results', {params: {
-  //     diet: 'balanced',
-  //     calories: '700',
-  //     count: 10
-  //   }}) .then((result) => {
-  //     console.log(result.data);
-  //     setTR(result.data);
-  //   })
-  // },[])
+  useEffect(() => {
+    axios.get('/results', {params: {
+      diet: 'balanced',
+      calories: '700',
+      count: 10
+    }}) .then((result) => {
+      console.log(result.data);
+      setTR(result.data);
+    })
+  },[])
 
 
   return (
@@ -45,7 +45,7 @@ const Homepage = () => {
       <div className='home' ref={containerRef}>
         <div className="div-element first">
           <div className="txtDiv">
-          <p style={{'fontSize':'70px', 'textAlign':'left','margin':' 0  0 5px 5vw'}}>FUEL YOUR JOURNEY WITH FLAVOR</p>
+          <p style={{'fontSize':'70px', 'textAlign':'left','margin':' 0  30px 5px 5vw'}}>FUEL YOUR JOURNEY WITH FLAVOR</p>
           <p style={{'fontSize':'40px', 'textAlign':'left','margin':'5px 0 0 5vw'}}><i> YOUR PATH TO HEALTHY EATING</i></p>
           </div>
           <div className='imgdiv'>
@@ -55,7 +55,7 @@ const Homepage = () => {
         <div className="div-element">
           <button className='quizbutton' onClick={()=>{navigate("/quiz")}}>START YOUR JOURNEY TODAY</button>
         </div>
-        {/* <Carousel recipes={tenRec} /> */}
+        <Carousel recipes={tenRec} />
         <AboutUs/>
       </div>
     </>

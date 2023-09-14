@@ -370,6 +370,14 @@ select option {
   z-index: 2;
   transition: border 0.2s ease-in-out;
 }
+.giraffe:hover {
+  cursor: pointer;
+  border: 2px solid rgb(224, 183, 106);
+  transform-origin: center;
+  transform: scale(50,50);
+  z-index: 2;
+  transition: border 0.2s ease-in-out;
+}
 .selectile {
   border: 2px solid rgb(224, 183, 106);
 }
