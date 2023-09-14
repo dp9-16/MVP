@@ -1,37 +1,39 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-}
-body::-webkit-scrollbar {
-  display:none;
+  font-family: 'Roboto';
 }
 p, span, h3 {
   text-align: center;
 }
-
+a {
+  text-decoration:none;
+  scroll-behavior: smooth;
+}
+/*#region Header/AboutUs*/
 .header {
   position:fixed;
   height: 80px;
   background-color: #96DB60;
   width:100%;
   display:grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 300px 1fr;
   align-items: center;
   top:0;
   z-index: 100;
 }
-.header > p {
+.header p {
   cursor:pointer;
   color: rgb(245, 245, 228);
   font-size: 24px;
 }
-.header > a {
+.header a {
   text-decoration:none;
   color: #f5f5e4;
   font-size: 24px;
 }
 #about-us {
-  height: 120px;
+  height: 200px;
+  scroll-behavior: smooth;
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
@@ -39,19 +41,35 @@ p, span, h3 {
   font-size: 24px;
   background-color: rgb(215, 215, 198);
 }
-
+.logo {
+  height:60px;
+  width: 60px;
+  /* border: 1px solid rgb(245, 245, 228); */
+  border-radius:60px;
+  overflow: hidden;
+  justify-self: end;
+  margin-right:30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  object-fit:scale-down;
+}
+/*#endregion Header/AboutUs*/
 /*#region HomePage*/
 .home {
-  margin-top: 80px;
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   height: 100vh;
+  overflow-x:hidden;
 }
 .home::-webkit-scrollbar {
   display:none;
 }
 .div-element {
+  padding-top:80px;
   height: calc(100vh - 80px);
   scroll-snap-align: start;
   display: flex;
@@ -59,6 +77,21 @@ p, span, h3 {
   align-items: center;
   font-size: 24px;
   background-color: rgb(245, 245, 228);
+}
+.quizbutton {
+  color:rgb(114, 160, 80);
+  background-color: rgb(245, 245, 228);
+  border: 3px solid #96DB60;
+  border-radius: 15px;
+  width:30vw;
+  height:15vh;
+  cursor: pointer;
+  font-size: large;
+}
+.quizbutton:hover {
+  background-color: #96DB60;
+  color: rgb(245, 245, 228);
+  transition: background-color 0.5s ease-in-out;
 }
 .txtDiv {
   width:50%;
@@ -80,8 +113,10 @@ p, span, h3 {
   height:100%;
   object-fit: cover;
 }
+.carousel {
+  z-index: 2;
+}
 /*#endregion HomePage*/
-
 /*#region Quiz*/
 .quiz-cont {
   border: 3px solid #96DB60;
@@ -234,3 +269,146 @@ select option {
 }
 /*#endregion Restrictions*/
 /*#endregion Quiz*/
+/*#region Card*/
+.outer {
+  padding-top: 80px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  background-color: rgb(245, 245, 228);
+  width:100vw;
+  height: calc(100vh - 80px);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner {
+  min-width: 1000px;
+  max-width: 1800px;
+  width:95%;
+  height: 65%;
+}
+.tile {
+  border:2px solid black;
+  border-radius:15px;
+  display:block;
+  position:relative;
+  height:50vh;
+  width:30vw;
+  min-height: 500px;
+  min-width:300px;
+  max-height: 750px;
+  max-width: 450px;
+}
+.favorite {
+  cursor: pointer;
+  position: absolute;
+  color: #d21404;
+  top:5px;
+  right:7px;
+}
+.tilecont {
+  width:100%;
+  display:flex;
+  justify-content: center;
+  margin-right: 0;
+}
+.imgtile {
+  padding:30px 10px 0 10px;
+  overflow: hidden;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.imgtile img {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.recipename {
+  font-style: italic;
+  margin: 15px 0 0 0;
+}
+.review {
+  width: calc(100% - 10px);
+  font-size:22px;
+  margin:10px;
+  text-align: left;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px 0 10px;
+  padding:0;
+  height: 50px;
+}
+.rating p {
+  font-size: 20px;
+}
+.rating span {
+  font-style: italic;
+}
+
+.stile {
+  border:2px solid black;
+  border-radius:15px;
+  display:block;
+  position:relative;
+  height:20vh;
+  width:15vw;
+  min-height: 180px;
+  min-width:170px;
+  max-height: 400px;
+  max-width: 300px;
+}
+.stile:hover {
+  cursor: pointer;
+  border: 2px solid rgb(224, 183, 106);
+  transform-origin: center;
+  transform: scale(1.15,1.15);
+  z-index: 2;
+  transition: border 0.2s ease-in-out;
+}
+.selectile {
+  border: 2px solid rgb(224, 183, 106);
+}
+/*#endregion Card*/
+/*#region Recipes*/
+.recipegrid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  height:100%;
+  width:100%;
+}
+.stile p {
+  font-size: 14px;
+}
+.stile .imgtile img {
+  min-height: 100px;
+  min-width: 100px;
+  width: 60%;
+  height: 60%;
+}
+
+.recgrid {
+  padding:30px;
+  border: 3px solid #96DB60;
+  border-radius: 15px;
+  height: 80%;
+  width: 80%;
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 3fr;
+}
+#ing p {
+  text-align: left;
+}
+#recinfo {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr 1fr;
+}
+/*#endregion Recipes*/

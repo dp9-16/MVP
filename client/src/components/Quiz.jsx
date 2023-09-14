@@ -13,7 +13,7 @@ import Restriction from './Survey/Restriction.jsx';
 const Quiz = () => {
   const [ goal,setGoal ] = useState(['balanced']);
   const [ cal,setCal ] = useState(0);
-  const [ rest,setRest ] = useState(['low-sugar']);
+  const [ rest,setRest ] = useState([]);
   const [ page,setPage ] = useState(1);
 
   //#region info
@@ -170,13 +170,15 @@ const Quiz = () => {
         var obj = {
           diet: goal,
           health: rest,
-          calories: (cal/3).toString()
+          calories: (cal/3).toString(),
+          count: 7
         }
       } else {
         var obj = {
           diet: goal,
           health: rest,
-          calories: (cal/2).toString()
+          calories: (cal/2).toString(),
+          count: 7
         }
       }
       axios.get('/results', {params:obj})

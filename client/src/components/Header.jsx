@@ -7,8 +7,12 @@ const Header = () => {
   }
   return (
     <div className='header'>
-      <p onClick={handleClick}>Home</p>
-      <a href='#about-us'>About Us</a>
+      <div style={{'display':'flex','alignItems':'center','justifyContent':'space-evenly'}}>
+      <p onClick={handleClick}>HOME</p>
+      <a href='#about-us'>ABOUT US</a>
+      </div>
+      <div className='logo'>
+      </div>
     </div>
   )
 }

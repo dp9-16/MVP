@@ -7,11 +7,20 @@ const key = process.env.API_KEY
 const uid = process.env.USER_ID
 
 const getRecipes = (obj, callback) => {
-  const qp = {
-    diet: obj.diet,
-    health: obj.health,
-    calories: obj.calories,
+  var qp = {}
+  if (obj.health) {
+    qp = {
+      diet: obj.diet,
+      health: obj.health,
+      calories: obj.calories,
+    }
+  } else {
+    qp = {
+      diet: obj.diet,
+      calories: obj.calories,
+    }
   }
+
   const q = [];
 
   for (const key in qp) {
@@ -32,7 +41,7 @@ const getRecipes = (obj, callback) => {
     }
   }) .then((response) => {
       const data = response.data.hits;
-      callback(null, data.splice(0,7));
+      callback(null, data.splice(0,obj.count));
     })
     .catch((err) => {
       callback(err, null);

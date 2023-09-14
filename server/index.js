@@ -13,7 +13,6 @@ app.get('/results', (req, res) => {
       console.log('Error finding definition', err);
       return res.sendStatus(404)
     }
-    console.log(data)
     res.json(data);
   })
 })
