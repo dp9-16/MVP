@@ -411,8 +411,12 @@ select option {
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 3fr;
 }
+#ing {
+  overflow-y: auto;
+}
 #ing p {
   text-align: left;
+  font-size: 20px;
 }
 #recinfo {
   display:grid;
