@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import AboutUs from './AboutUs.jsx';
 import Header from './Header.jsx';
 import { useLocation } from 'react-router-dom';
@@ -15,19 +15,15 @@ const Recipes = () => {
   }
   if (location.state) {
     data = location.state.recipes;
-    console.log(data)
   }
 
-  const handleClick = (e,index) => {
-    setInd(index)
-  }
   return (
     <div className='home'>
       <Header />
       <div className="div-element">
         <div className='recipegrid'>
           {data.map((recipe,index) => {
-            return (<a href='#recipediv' onClick={(e) => {handleClick(e,index)}}><SimpleCard key={index} food= {recipe}/></a>)
+            return (<SimpleCard key={index} index={index} food= {recipe} set={setInd}/>)
           })}
           <div>
             <p>Scroll Down For Recipe</p>
@@ -36,8 +32,8 @@ const Recipes = () => {
           <SimpleCard className='giraffe' key='giraffe' food={obj}/>
         </div>
       </div>
-      <div className="div-element" id='recipediv'>
-        {location.state ? (<Recipe recipe={data[ind]}/>) : (<h1>Loading</h1>)}
+      <div className="div-element second" id='recipediv'>
+        {data ? (<Recipe recipe={data[ind]}/>) : (<h1>Loading</h1>)}
         {/* {arr ? (<Recipe recipe={arr[ind]}/>) : (<h1>Loading</h1>)} */}
       </div>
       <AboutUs />
